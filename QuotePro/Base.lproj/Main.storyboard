@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q1c-Bc-ypi">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,22 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuoteTableViewCell" textLabel="dqC-hg-qcY" detailTextLabel="epZ-tv-uHb" style="IBUITableViewCellStyleSubtitle" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell contentMode="scaleAspectFit" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuoteTableViewCell" textLabel="dqC-hg-qcY" detailTextLabel="epZ-tv-uHb" rowHeight="90" style="IBUITableViewCellStyleSubtitle" id="WCw-Qf-5nD" customClass="QuoteTableViewCell" customModule="QuotePro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Quote" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dqC-hg-qcY">
-                                            <rect key="frame" x="20" y="5" width="47" height="20.5"/>
+                                            <rect key="frame" x="20" y="25" width="47" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="epZ-tv-uHb">
-                                            <rect key="frame" x="20" y="25.5" width="38" height="14.5"/>
+                                            <rect key="frame" x="20" y="48.5" width="38" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -74,7 +74,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="864-UG-N6U">
                                 <rect key="frame" x="0.0" y="199" width="414" height="498"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgH-iS-4f2" customClass="QuoteView" customModule="QuotePro" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgH-iS-4f2">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -82,15 +82,21 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="OdU-rB-wiE">
-                                        <rect key="frame" x="49" y="468" width="316" height="30"/>
+                                        <rect key="frame" x="50" y="468" width="314" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6s-3d-yeC">
                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
                                                 <state key="normal" title="New Random Quote"/>
+                                                <connections>
+                                                    <action selector="newQuote:" destination="o6Y-Kl-nUu" eventType="touchUpInside" id="FIW-a6-M9u"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMW-4v-GUF">
-                                                <rect key="frame" x="178" y="0.0" width="138" height="30"/>
-                                                <state key="normal" title="New Random Image"/>
+                                                <rect key="frame" x="178" y="0.0" width="136" height="30"/>
+                                                <state key="normal" title="New Random Photo"/>
+                                                <connections>
+                                                    <action selector="newPhoto:" destination="o6Y-Kl-nUu" eventType="touchUpInside" id="lVl-dM-WLs"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -112,10 +118,15 @@
                                 <action selector="cancel:" destination="o6Y-Kl-nUu" id="pWi-aV-fsX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xXn-dC-1es"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xXn-dC-1es">
+                            <connections>
+                                <action selector="saveButton:" destination="o6Y-Kl-nUu" id="4VA-e8-nT8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="XG9-q3-ZpI" id="ORB-PI-Vce"/>
+                        <outlet property="quoteViewContainer" destination="TgH-iS-4f2" id="pgQ-J7-FSX"/>
                         <outlet property="saveButton" destination="xXn-dC-1es" id="NaD-bo-q1M"/>
                     </connections>
                 </viewController>

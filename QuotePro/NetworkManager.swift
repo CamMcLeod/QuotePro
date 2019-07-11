@@ -9,18 +9,10 @@
 import Foundation
 
 class NetworkManager: NetworkerType {
-    
+
     func requestData(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-        let dataTask = urlSession.dataTask(with: url, completionHandler: requestCompletionHandler)
+        let dataTask = urlSession.dataTask(with: url, completionHandler: completionHandler)
         dataTask.resume()
     }
-    
-//    func postRequest(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-//        let request = NSMutableURLRequest(url: url)
-//        request.httpMethod = "POST"
-//        let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: postCompletionHandler)
-//        task.resume()
-//
-//}
 }

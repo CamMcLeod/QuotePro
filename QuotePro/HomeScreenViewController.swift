@@ -10,10 +10,9 @@ import UIKit
 import CoreData
 import os.log
 
-class HomeScreenViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class HomeScreenViewController: UITableViewController, NSFetchedResultsControllerDelegate , QuoteObjectDelegate{
 
     var quotes: [QuoteObject] = []
-    var networkManager: NetworkerType = NetworkManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +53,11 @@ class HomeScreenViewController: UITableViewController, NSFetchedResultsControlle
         cell.textLabel!.text = quoteObject.quote.quoteText
         cell.detailTextLabel!.text = quoteObject.quote.quoteAuthor
         
+        
         return cell
     }
 
-
+ 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -78,6 +78,36 @@ class HomeScreenViewController: UITableViewController, NSFetchedResultsControlle
     }
 
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let quoteObject = quotes[indexPath.row]
+        let image : UIImage?
+        if let objects = Bundle.main.loadNibNamed("QuoteView", owner: nil, options: [:]), let view = objects.first {
+            
+            if let quoteView = view as? QuoteView {
+                quoteView.frame = CGRect(x: 0, y: 0, width: CGFloat(quoteObject.photo.width), height: CGFloat(quoteObject.photo.height))
+                UIGraphicsBeginImageContextWithOptions(CGSize(width: quoteObject.photo.width, height: quoteObject.photo.height), true, 0)
+                quoteView.authorLabel.text = quoteObject.quote.quoteAuthor
+                quoteView.quoteLabel.text = quoteObject.quote.quoteText
+                quoteView.photoImage.image = quoteObject.photo.image
+                quoteView.drawHierarchy(in: quoteView.frame, afterScreenUpdates: true)
+                self.view.addSubview(quoteView)
+                self.navigationController!.setNavigationBarHidden(true, animated: true)
+                image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext();
+                let avc = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                avc.completionWithItemsHandler = { (activity, success, items, error) in
+                    self.navigationController!.setNavigationBarHidden(false, animated: true)
+                    quoteView.removeFromSuperview()
+                    
+                }
+                
+
+                self.present(avc, animated: true)
+            }
+        }
+    }
+    
     /*
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -95,24 +125,14 @@ class HomeScreenViewController: UITableViewController, NSFetchedResultsControlle
 
 
     //MARK: Actions
-    @IBAction func unwindToHomeScreen(sender: UIStoryboardSegue) {
-        
-        if let sourceViewController = sender.source as? QuoteBuilderViewController, let quoteObject = sourceViewController.quoteObject {
-            
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing meal.
-                quotes[selectedIndexPath.row] = quoteObject
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            }
-            else {
-                // Add a new meal.
-                let newIndexPath = IndexPath(row: quotes.count, section: 0)
-                quotes.append(quoteObject)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
-            
+    
+    func saveQuoteObject(quoteObject: QuoteObject?) {
+        if let newQuoteObject = quoteObject {
+            // Add a new quote.
+            let newIndexPath = IndexPath(row: quotes.count, section: 0)
+            quotes.append(newQuoteObject)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
-        
     }
 
     // MARK: - Segues
@@ -124,6 +144,9 @@ class HomeScreenViewController: UITableViewController, NSFetchedResultsControlle
             
         case "addQuote":
             os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+            let quoteBuilder = segue.destination.children[0] as! QuoteBuilderViewController
+            quoteBuilder.delegate = self
+            
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }

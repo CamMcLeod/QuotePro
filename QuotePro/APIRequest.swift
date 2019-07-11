@@ -11,6 +11,7 @@ import UIKit
 
 protocol NetworkerType {
     func requestData(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Swift.Void)
+//    func postData(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Swift.Void)
 }
 
 enum APIError: Error {
@@ -32,9 +33,9 @@ class APIRequest {
 /// Methods that should be called by other classes
 extension APIRequest {
     
-    func getRandomPhoto(width:Int, height: Int, requestCompletionHandler: @escaping (UIImage?, Error?) -> Void) {
+    func getRandomPhoto(width:Int, height: Int, completionHandler: @escaping (Photo?, Error?) -> Void) {
         guard let url = buildLoremPixelURL(width: width, height: height) else {
-            requestCompletionHandler(nil, APIError.badURL)
+            completionHandler(nil, APIError.badURL)
             return
         }
         
@@ -44,17 +45,17 @@ extension APIRequest {
             do {
                 resultImage = try self.imageObject(fromData: data, response: urlRequest, error: error)
             } catch let error {
-                requestCompletionHandler(nil, error)
+                completionHandler(nil, error)
                 return
             }
             
-            requestCompletionHandler(resultImage, nil)
+            completionHandler(Photo(width: width, height: height, image: resultImage), nil)
         }
     }
     
-    func getRandomQuote(requestCompletionHandler: @escaping (Quote?, Error?) -> Void) {
+    func getRandomQuote(completionHandler: @escaping (Quote?, Error?) -> Void) {
         guard let url = buildForismaticURL() else {
-            requestCompletionHandler(nil, APIError.badURL)
+            completionHandler(nil, APIError.badURL)
             return
         }
         
@@ -64,18 +65,18 @@ extension APIRequest {
             let decoder = JSONDecoder()
             
             guard let data = data else {
-                requestCompletionHandler(nil, APIError.invalidJSON)
+                completionHandler(nil, APIError.invalidJSON)
                 return
             }
-            
+            var json: [String: Any] = [:]
             do {
                 resultQuote = try decoder.decode(Quote.self, from: data)
             } catch {
-                requestCompletionHandler(nil, APIError.invalidJSON)
+                completionHandler(nil, APIError.invalidJSON)
                 return
             }
             
-            requestCompletionHandler(resultQuote, nil)
+            completionHandler(resultQuote, nil)
 
         }
     }
@@ -87,7 +88,7 @@ extension APIRequest {
     
     func buildLoremPixelURL(width: Int, height: Int) -> URL? {
         var componenets = URLComponents()
-        componenets.scheme = "https"
+        componenets.scheme = "http"
         componenets.host = "lorempixel.com"
         var componentsURL = componenets.url
         componentsURL = componentsURL?.appendingPathComponent(String(width))
@@ -99,11 +100,19 @@ extension APIRequest {
     func buildForismaticURL() -> URL? {
         
         var componenets = URLComponents()
-        componenets.scheme = "https"
+        componenets.scheme = "http"
         componenets.host = "api.forismatic.com"
+        
+        componenets.queryItems = [
+        URLQueryItem(name: "method", value: "getQuote"),
+        URLQueryItem(name: "lang", value: "en"),
+        URLQueryItem(name: "format", value: "json")
+        
+        ]
+        
         var componentsURL = componenets.url
-        componentsURL = componentsURL?.appendingPathComponent("?method=getQuote&lang=en&format=json")
-
+        componentsURL = componentsURL?.appendingPathComponent("api")
+        componentsURL = componentsURL?.appendingPathComponent("1.0/")
         return componentsURL
     }
 }

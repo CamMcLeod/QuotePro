@@ -9,14 +9,8 @@
 import Foundation
 import UIKit
 
-class Photo {
-    let width: Int
-    let height: Int
-    let image: UIImage
-    
-    init(width: Int, height: Int, image: UIImage) {
-        self.width = width
-        self.height = height
-        self.image = image
-    }
+struct Photo {
+    var width: Int
+    var height: Int
+    var image: UIImage
 }
