@@ -8,24 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		6258C69B22D681E50047000C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C69A22D681E50047000C /* AppDelegate.swift */; };
-		6258C69E22D681E50047000C /* QuotePro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6258C69C22D681E50047000C /* QuotePro.xcdatamodeld */; };
-		6258C6A022D681E50047000C /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C69F22D681E50047000C /* MasterViewController.swift */; };
-		6258C6A222D681E50047000C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C6A122D681E50047000C /* DetailViewController.swift */; };
+		6258C6A022D681E50047000C /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C69F22D681E50047000C /* HomeScreenViewController.swift */; };
 		6258C6A522D681E50047000C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6258C6A322D681E50047000C /* Main.storyboard */; };
 		6258C6A722D681E60047000C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6258C6A622D681E60047000C /* Assets.xcassets */; };
 		6258C6AA22D681E60047000C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6258C6A822D681E60047000C /* LaunchScreen.storyboard */; };
+		6258C6B222D6831F0047000C /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C6B122D6831F0047000C /* Quote.swift */; };
+		6258C6B422D6832E0047000C /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C6B322D6832E0047000C /* Photo.swift */; };
+		6258C6B622D683C10047000C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C6B522D683C10047000C /* NetworkManager.swift */; };
+		6258C6B822D68B530047000C /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C6B722D68B530047000C /* APIRequest.swift */; };
+		6258C6BE22D6A2E80047000C /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C6BD22D6A2E80047000C /* QuoteView.swift */; };
+		6258C6C022D6A31F0047000C /* QuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6258C6BF22D6A31F0047000C /* QuoteView.xib */; };
+		6258C6C222D6AD370047000C /* QuoteBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C6C122D6AD370047000C /* QuoteBuilderViewController.swift */; };
+		6258C6C422D6BE1F0047000C /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6258C6C322D6BE1F0047000C /* QuoteTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6258C69722D681E50047000C /* QuotePro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotePro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6258C69A22D681E50047000C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6258C69D22D681E50047000C /* QuotePro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuotePro.xcdatamodel; sourceTree = "<group>"; };
-		6258C69F22D681E50047000C /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		6258C6A122D681E50047000C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		6258C69F22D681E50047000C /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		6258C6A422D681E50047000C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6258C6A622D681E60047000C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6258C6A922D681E60047000C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6258C6AB22D681E60047000C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6258C6B122D6831F0047000C /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		6258C6B322D6832E0047000C /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		6258C6B522D683C10047000C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		6258C6B722D68B530047000C /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		6258C6BD22D6A2E80047000C /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		6258C6BF22D6A31F0047000C /* QuoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteView.xib; sourceTree = "<group>"; };
+		6258C6C122D6AD370047000C /* QuoteBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteBuilderViewController.swift; sourceTree = "<group>"; };
+		6258C6C322D6BE1F0047000C /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +71,19 @@
 			isa = PBXGroup;
 			children = (
 				6258C69A22D681E50047000C /* AppDelegate.swift */,
-				6258C69F22D681E50047000C /* MasterViewController.swift */,
-				6258C6A122D681E50047000C /* DetailViewController.swift */,
+				6258C6B122D6831F0047000C /* Quote.swift */,
+				6258C6B322D6832E0047000C /* Photo.swift */,
+				6258C6B522D683C10047000C /* NetworkManager.swift */,
+				6258C6B722D68B530047000C /* APIRequest.swift */,
+				6258C6C122D6AD370047000C /* QuoteBuilderViewController.swift */,
+				6258C69F22D681E50047000C /* HomeScreenViewController.swift */,
+				6258C6C322D6BE1F0047000C /* QuoteTableViewCell.swift */,
+				6258C6BD22D6A2E80047000C /* QuoteView.swift */,
+				6258C6BF22D6A31F0047000C /* QuoteView.xib */,
 				6258C6A322D681E50047000C /* Main.storyboard */,
 				6258C6A622D681E60047000C /* Assets.xcassets */,
 				6258C6A822D681E60047000C /* LaunchScreen.storyboard */,
 				6258C6AB22D681E60047000C /* Info.plist */,
-				6258C69C22D681E50047000C /* QuotePro.xcdatamodeld */,
 			);
 			path = QuotePro;
 			sourceTree = "<group>";
@@ -131,6 +149,7 @@
 				6258C6AA22D681E60047000C /* LaunchScreen.storyboard in Resources */,
 				6258C6A722D681E60047000C /* Assets.xcassets in Resources */,
 				6258C6A522D681E50047000C /* Main.storyboard in Resources */,
+				6258C6C022D6A31F0047000C /* QuoteView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +160,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6258C69E22D681E50047000C /* QuotePro.xcdatamodeld in Sources */,
+				6258C6C222D6AD370047000C /* QuoteBuilderViewController.swift in Sources */,
+				6258C6B422D6832E0047000C /* Photo.swift in Sources */,
 				6258C69B22D681E50047000C /* AppDelegate.swift in Sources */,
-				6258C6A022D681E50047000C /* MasterViewController.swift in Sources */,
-				6258C6A222D681E50047000C /* DetailViewController.swift in Sources */,
+				6258C6C422D6BE1F0047000C /* QuoteTableViewCell.swift in Sources */,
+				6258C6B622D683C10047000C /* NetworkManager.swift in Sources */,
+				6258C6A022D681E50047000C /* HomeScreenViewController.swift in Sources */,
+				6258C6B222D6831F0047000C /* Quote.swift in Sources */,
+				6258C6B822D68B530047000C /* APIRequest.swift in Sources */,
+				6258C6BE22D6A2E80047000C /* QuoteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,19 +368,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		6258C69C22D681E50047000C /* QuotePro.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				6258C69D22D681E50047000C /* QuotePro.xcdatamodel */,
-			);
-			currentVersion = 6258C69D22D681E50047000C /* QuotePro.xcdatamodel */;
-			path = QuotePro.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 6258C68F22D681E50047000C /* Project object */;
 }
